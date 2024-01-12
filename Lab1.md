@@ -1,13 +1,61 @@
-Lab Report 1
+# Lab Report 1
+
+## `cd` command
 
 - `cd` with no argument
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
 
+- `cd` with path to a directory
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
 
-![Image](cd.png)
+- `cd` with path to a file
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+---
+## `ls` command 
 
-The first line, with home directory working, shows cd as the command line with no arguments and this command didn't produce any output or made any changes in the foldersd nor files. Having now arguments caused teh command to produce no output as it did not have any argument to pass on.
-ls
-![Image](ls.png)
-cat
-![Image](cat.png)
-![Image](cat2.png)
+- `ls` with no argument
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+
+- `ls` with path to a directory
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+
+- `ls` with path to a file
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+---
+## `cat` command
+
+- `cat` with no argument
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+
+- `cat` with path to a directory
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
+
+- `cat` with path to a file
+```
+print '3 backticks or'
+print 'indent 4 spaces'
+```
