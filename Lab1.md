@@ -1,5 +1,8 @@
 # Lab Report 1
 
+![Image](SC.png)
+![Image](SC1.png)
+
 ## `cd` command
 
 - `cd` with no argument
