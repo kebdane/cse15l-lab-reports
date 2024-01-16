@@ -1,9 +1,12 @@
 # Lab Report 1
 
+
 ![Image](SC.png)
 ![Image](SC1.png)
 
+
 ## `cd` command
+
 
 #### `cd` with no argument
 ```
@@ -14,7 +17,9 @@
 - running the command `cd` with no argument had no change nor presented a visible output. This is because `cd` is meant is meant to change the working directory but with no argument it did not have a directory to change the prompt in the terminal into.
 - the output was not an error as the command ran and had no error message.
 
+
 ---
+
 
 #### `cd` with path to a directory
 ```
@@ -36,10 +41,12 @@ bash: cd: messages/en-us.txt: Not a directory
 - running the command `cd` with path to a file printed a message saying "bash: cd: messages/en-us.txt: Not a directory". Again, `cd` is meant is meant to change the working directory and since it was directed with a path to a file, it cannot switch the running directory to a file. 
 - the output was an error as the command ran and produced an error message as the path was not to a directory instead was to a file to which the command cannot switch the directory into.
 
+
 ---
 ## `ls` command 
 
-####`ls` with no argument
+
+#### `ls` with no argument
 ```
 [user@sahara ~/lecture1]$ ls
 Hello.java messages README
@@ -57,7 +64,7 @@ en-us.txt es-mx.txt zh-cn.txt
 [user@sahara ~/lecture1]$
 ```
 - The working directory when the command was run was the lecture1 directory.
-- running the command `ls` with a path to a directory also listed the files and folders within the said directory. Agian, ls is command meant to show the names of files and folders within the running directory and so this the command `ls` messages printed a list of files and folders within the messages directory.
+- running the command `ls` with a path to a directory also listed the files and folders within the said directory. Again, ls is command meant to show the names of files and folders within the running directory and so this the command `ls` messages printed a list of files and folders within the messages directory.
 - the output was not an error as it produced its expected output of the list of the names of files and folders.
   
 ___
@@ -82,7 +89,7 @@ cat
 cat
 ```
 - The working directory when the command was run was the lecture1 directory.
-- running the command `cat` with no argument caused the prompt to disappar as the `cat` command had no argument to read and so it was caused to rely on the terminal, and anything to be written on the terminal will be what the `cat` will read and produced as an output. 
+- running the command `cat` with no argument caused the prompt to disappear as the `cat` command had no argument to read and so it was caused to rely on the terminal, and anything to be written on the terminal will be what the `cat` will read and produced as an output. 
 - the output was not an error as it had no error message and was still working despite the prompt in the terminal missing. 
   
 ___
@@ -90,6 +97,7 @@ ___
 ```
 [user@sahara ~/lecture1]$ cat lecture1
 cat: lecture1: No such file or directory
+
 
 [user@sahara ~/lecture1]$ cat messages
 cat: messages: Is a directory
@@ -108,6 +116,6 @@ Hello World!
 [user@sahara ~/lecture1]$
 ```
 - The working directory when the command was run was the lecture1 directory.
-- running the `cat` command with a path to a file was a succes. It printed "Hello World!" since `cat` command was meant to read and print the prompted file contents. 
+- running the `cat` command with a path to a file was a success. It printed "Hello World!" since `cat` command was meant to read and print the prompted file contents. 
 - the output was not an error as it produced its expected output of reading and printing a file content. 
   
