@@ -1,8 +1,5 @@
 # Lab Report 2
-
-![Image](LabReport2ss.png)
-![Image](LabReport2ss1.png)
-
+```
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
@@ -43,3 +40,8 @@ class ChatServer {
         Server.start(port, new Handler());
     }
 }
+```
+![Image](LabReport2ss.png)
+![Image](LabReport2ss1.png)
+
+
