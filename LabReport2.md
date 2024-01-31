@@ -48,11 +48,14 @@ class ChatServer {
 ![Image](LabReport2ss.png)
 * `handleRequest()` method was called
 * The relevant argument to this method was the `URI url`, for example`0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hi`. To which contains the a path request `/add-message`.
-* The values of this request such as `s=Kersten&user=Hi` gets split up into two String values. Such that the `.split` method'd condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up but this time with the character `=`.
+* The values of this request such as `s=Kersten&user=Hi` gets split up into two String values. Such that the `.split` method's condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up but this time with the character `=`.
 
 
 
 ![Image](LabReport2ss1.png)
+* `handleRequest()` method was called
+* The relevant argument to this method was the `URI url`, in this case, `0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hello`. To which contains the a path request `/add-message`.
+* The values of this request such as `s=Kersten&user=Hello` gets split up into two String values. Such that the `.split` method's condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up but this time with the character `=`.
 ___
 
 ### Part 2
@@ -61,5 +64,5 @@ ___
 ___
 
 ### Part 3
-* During Lab 2 and 3, I learned a lot. Most of the activities were pretty much new to me such as building and running a server. I also learned few new commands such as `curl`, `mkdir`, and `scp`.
+* During Lab 2 and 3, I learned a lot. Most of the activities were pretty much new to me such as building and running a server. I also learned few new commands such as `curl`, `mkdir`, and `scp`. Both lab activities
 
