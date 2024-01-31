@@ -56,13 +56,13 @@ class ChatServer {
 * `handleRequest()` method was called
 * The relevant argument to this method was the `URI url`, in this case, `0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hello`. To which contains the a path request `/add-message`.
 * The values of this request such as `s=Kersten&user=Hello` gets split up into two String values. Such that the `.split` method's condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up again but this time with the character `=`.
-___
+---
 
 ### Part 2
 
 ![Image](LabReport2ss2.png)
-* Here having a private key, made logging into ieng6 account much easier by not requiring to enter your password every time. 
-___
+* Here having a private key, made logging into ieng6 account much easier by not requiring to enter your password every time.
+---
 
 ### Part 3
 * During Lab 2 and 3, I learned a lot. Most of the activities were pretty much new to me such as building and running a server. I didn't know how to create a server before and so having a starter code that we could edit and observe its outputs was very helpful for me. I also learned few new commands such as `curl`, `mkdir`, and `scp`. I wasn't aware of these commands before and I think learning these commands will be very helpful with future activities of this class and other classes I'm taking/ will take. 
