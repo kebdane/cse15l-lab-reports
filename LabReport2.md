@@ -61,5 +61,5 @@ ___
 ___
 
 ### Part 3
-
+* During Lab 2 and 3, I learned a lot. Most of the activities were pretty much new to me such as building and running a server. I also learned few new commands such as `curl`, `mkdir`, and `scp`.
 
