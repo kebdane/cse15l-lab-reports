@@ -57,7 +57,9 @@ class ChatServer {
 
 ## Part 2
 
-![Image](LabReport2ss2.png)
+![Image](SS1.png)
+![Image](SS2.png)
+![Image](SS3.png)
 * Here having a private key, made logging into ieng6 account much easier by not requiring to enter your password every time.
 
 ## Part 3
