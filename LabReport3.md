@@ -54,10 +54,13 @@ StringChecker sc = new StringChecker();
 assertSame(Expected, ListExamples.filter(classes, sc));
 ```
 * A non-inducing failure would be if this `StringChecker` parameter is replaced by a `String` parameter that will account for the element the user wants to filter out of the list.
+  
 ```
 assertSame(Expected, ListExamples.filter(classes, "CSE 11"));
 ```
+
 * Symptom (with and without bug)
+  
 ```
 Before:
 danilaebdane@Danilas-MacBook-Pro lab4 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
@@ -75,7 +78,9 @@ Time: 0.01
 
 OK (1 test)
 ```
+
 * Before and After bug
+  
 ```
 Not fixed:
 interface StringChecker { boolean checkString(String s); }
@@ -122,6 +127,7 @@ class ListExamples implements StringChecker{
 }
 }
 ```
+
 * The fix addressed the issue as instead of creating an instantation of the interface, we made the `ListExample` class to implement it along with the method `checkString`. In this case, the interface is properly used and with the right `checkString` method implementation we are able to make the `filter` method work.
 
 ## Part 2
@@ -182,6 +188,7 @@ technical/biomed/ar93.txt
 ...(cut short, so report is not too long)
 danilaebdane@Danilas-MacBook-Pro docsearch % 
 ```
+
 * `grep -v '___' fileName` prints out the files that does not contain a specific pattern. This is useful when trying to cut the length of the file list depending on a pattern that we do not want to include.
   
 ```
@@ -198,6 +205,7 @@ danilaebdane@Danilas-MacBook-Pro docsearch % grep -c '2' find-results.txt
 748
 danilaebdane@Danilas-MacBook-Pro docsearch % 
 ```
+
 * `grep -c '___' fileName` counts and prints out the number of files containing the specific pattern. This is useful when we want to see how many files have the pattern we specified.
   
 ```
@@ -268,6 +276,7 @@ technical/biomed/1471-2105-2-9.txt
 ...(cut short, so report is not too long)
 danilaebdane@Danilas-MacBook-Pro docsearch % 
 ```
+
 * `grep -e '___' fileName` opposite of `-v`, `-e` prints out the files that does contain a specific pattern. This is useful when trying to make a list of files depending on a pattern that we do want include.
   
 ```
