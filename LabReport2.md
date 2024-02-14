@@ -47,13 +47,17 @@ class ChatServer {
 ```
 ![Image](LabReport2ss.png)
 * `handleRequest()` method was called
-* The relevant argument to this method was the `URI url`, for example`0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hi`. To which contains the a path request `/add-message`.
-* The values of this request such as `s=Kersten&user=Hi` gets split up into two String values. Such that the `.split` method's condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up again but this time with the character `=`.
+* The relevant argument to this method was the `URI url`, in this case, `0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hello`. To which contains the a path request `/add-message`.
+* The relevant fields would be the class variable `messages` which is an arrayList.
+* Before the call, `messages` variable is empty conatinaing no String values. But after the call, `messages` will store the String that resulted from `handleRequest()` method call in which will be "Kersten: Hi".
+* `messages` Arraylist changes by having more Strings to be added creating a list of Strings that are results of `handleRequest()` method with a `/add-message` path request.
 
 ![Image](LabReport2ss1.png)
 * `handleRequest()` method was called
 * The relevant argument to this method was the `URI url`, in this case, `0-0-0-0-4000-drhuco7qoasp3f16fmgqqu42oO.us.edusercontent.com/add-message?s=Kersten&user=Hello`. To which contains the a path request `/add-message`.
-* The values of this request such as `s=Kersten&user=Hello` gets split up into two String values. Such that the `.split` method's condition is the String to be split up with the character of `&`. The resulting strings, in this case `s=Kersten` and `user=Hi` will then be split up again but this time with the character `=`.
+* The relevant fields would be the class variable `messages` which is an arrayList.
+* Before the call, `messages` variable is conatinaing the resulted String value from the first `handleRequest()` method call request which is "Kersten: Hi". And after the call, `messages` will store the Strings that resulted from the second `handleRequest()` method call in which will be "Kersten: Hello".
+* `messages` Arraylist changes by having more Strings to be added creating a list of Strings that are results of `handleRequest()` method with a `/add-message` path request.
 
 ## Part 2
 
