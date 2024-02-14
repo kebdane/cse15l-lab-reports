@@ -14,15 +14,15 @@ Before:
     classes.add("CSE20");
     classes.add("CSE11");
 
-    List<String> expected = new ArrayList<>();
+    List<String> Expected = new ArrayList<>();
 
-    expected.add("CSE15L");
-    expected.add("CSE12");
-    expected.add("CSE20");
+    Expected.add("CSE15L");
+    Expected.add("CSE12");
+    Expected.add("CSE20");
 
     StringChecker sc = new StringChecker();
 
-    assertSame(expected, ListExamples.filter(classes, sc));
+    assertSame(Expected, ListExamples.filter(classes, sc));
 	}
 
 After:
@@ -35,15 +35,15 @@ After:
     classes.add("CSE20");
     classes.add("CSE11");
 
-    List<String> expected = new ArrayList<>();
+    List<String> Expected = new ArrayList<>();
 
-    expected.add("CSE15L");
-    expected.add("CSE12");
-    expected.add("CSE20");
+    Expected.add("CSE15L");
+    Expected.add("CSE12");
+    Expected.add("CSE20");
 
     ListExamples list = new ListExamples();
 
-    assertEquals(expected, list.filter(classes, "CSE11"));
+    assertEquals(Expected, list.filter(classes, "CSE11"));
 	}
 ```
 * The failure inducing output would be the parameter of the `filter` method, `sc`, which is type `StringChecker`. This is because `StringChecker` is an interface to which we cannot instantiate and to be used, the List class should implement it and include an implementation of the method `checkString` as required by the `StringChecker` interface.
@@ -51,11 +51,11 @@ After:
 ```
 StringChecker sc = new StringChecker();
 
-assertSame(expected, ListExamples.filter(classes, sc));
+assertSame(Expected, ListExamples.filter(classes, sc));
 ```
 * A non-inducing failure would be if this `StringChecker` parameter is replaced by a `String` parameter that will account for the element the user wants to filter out of the list.
 ```
-assertSame(expected, ListExamples.filter(classes, "CSE 11"));
+assertSame(Expected, ListExamples.filter(classes, "CSE 11"));
 ```
 * Symptom (with and without bug)
 ```
@@ -128,45 +128,184 @@ class ListExamples implements StringChecker{
 
 ### grep command-line options:
 ```
---help  Print a brief help message.
+-v, --invert-match
+             Selected lines are those not matching any of the specified pat-
+             terns.
 
-EX. 1
-danilaebdane@Danilas-MacBook-Pro docsearch % grep --help ./tec
-hnical
-usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
-        [-e pattern] [-f file] [--binary-files=value] [--color=when]
-        [--context[=num]] [--directories=action] [--label] [--line-buffered]
-        [--null] [pattern] [file ...]
-danilaebdane@Danilas-MacBook-Pro docsearch %
+Ex. 1
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -v '2' find-results.txt
+technical/biomed/1468-6708-3-1.txt
+technical/biomed/1468-6708-3-10.txt
+technical/biomed/1468-6708-3-3.txt
+technical/biomed/1468-6708-3-4.txt
+technical/biomed/1468-6708-3-7.txt
+technical/biomed/1471-5945-1-3.txt
+technical/biomed/1471-5945-3-3.txt
+technical/biomed/1476-069X-1-3.txt
+technical/biomed/1476-4598-1-3.txt
+technical/biomed/1476-4598-1-5.txt
+technical/biomed/1476-4598-1-6.txt
+technical/biomed/1476-4598-1-8.txt
+technical/biomed/1476-9433-1-3.txt
+technical/biomed/1477-5956-1-1.txt
+technical/biomed/1477-7819-1-10.txt
+technical/biomed/1478-1336-1-3.txt
+technical/biomed/1478-1336-1-4.txt
+technical/biomed/1478-7954-1-3.txt
+...(cut short, so report is not too long)
+danilaebdane@Danilas-MacBook-Pro docsearch %  
 
-EX. 2
-danilaebdane@Danilas-MacBook-Pro docsearch % grep --help ./technical/biomed/1468-6708-3-1.txt
-usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
-        [-e pattern] [-f file] [--binary-files=value] [--color=when]
-        [--context[=num]] [--directories=action] [--label] [--line-buffered]
-        [--null] [pattern] [file ...]
+Ex. 2
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -v '1' find-results.txt
+technical/biomed/ar297.txt
+technical/biomed/ar309.txt
+technical/biomed/ar328.txt
+technical/biomed/ar383.txt
+technical/biomed/ar387.txt
+technical/biomed/ar407.txt
+technical/biomed/ar408.txt
+technical/biomed/ar409.txt
+technical/biomed/ar422.txt
+technical/biomed/ar429.txt
+technical/biomed/ar430.txt
+technical/biomed/ar624.txt
+technical/biomed/ar68.txt
+technical/biomed/ar745.txt
+technical/biomed/ar750.txt
+technical/biomed/ar774.txt
+technical/biomed/ar778.txt
+technical/biomed/ar79.txt
+technical/biomed/ar792.txt
+technical/biomed/ar795.txt
+technical/biomed/ar799.txt
+technical/biomed/ar93.txt
+...(cut short, so report is not too long)
+danilaebdane@Danilas-MacBook-Pro docsearch % 
 ```
-* `grep --help` is a command that prints out we can possibly use `grep`. It includes multiples command-line that we can combine when using `grep` such as typing in the terminal `grep [-A num] [-C[num]] [file ...]`, in this case we using `-A` and `-C` command-lines with `grep`. This is helpful because when we are unsure of what we can use `grep` for, we can use `--help` to remind us of some comman-line options for `grep`.
+* `grep -v '___' fileName` prints out the files that does not contain a specific pattern. This is useful when trying to cut the length of the file list depending on a pattern that we do not want to include.
   
-```
--q, --quiet, --silent
-             Quiet mode: suppress normal output.  grep will only search a file
-             until a match has been found, making searches potentially less
-             expensive.
-```
-```
- --exclude
-             If specified, it excludes files matching the given filename pat-
-             tern from the search.  Note that --exclude patterns take priority
-             over --include patterns, and if no --include pattern is speci-
-             fied, all files are searched that are not excluded.  Patterns are
-             matched to the full path specified, not only to the filename com-
-             ponent.
-```
 ```
 -c, --count
              Only a count of selected lines is written to standard output.
+
+Ex 1:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -c '1' find-results.txt 
+745
+danilaebdane@Danilas-MacBook-Pro docsearch % 
+
+Ex 2:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -c '2' find-results.txt
+748
+danilaebdane@Danilas-MacBook-Pro docsearch % 
 ```
+* `grep -c '___' fileName` counts and prints out the number of files containing the specific pattern. This is useful when we want to see how many files have the pattern we specified.
+  
+```
+-e pattern, --regExp=pattern
+     Specify a pattern used during the search of the input: an input
+     line is selected if it matches any of the specified patterns.
+     This option is most useful when multiple -e options are used to
+     specify multiple patterns, or when a pattern begins with a dash
+     (`-').
+Ex 1:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -e '1' find-results.txt
+technical/biomed/1468-6708-3-1.txt
+technical/biomed/1468-6708-3-10.txt
+technical/biomed/1468-6708-3-3.txt
+technical/biomed/1468-6708-3-4.txt
+technical/biomed/1468-6708-3-7.txt
+technical/biomed/1471-2091-2-10.txt
+technical/biomed/1471-2091-2-11.txt
+technical/biomed/1471-2091-2-12.txt
+technical/biomed/1471-2091-2-13.txt
+technical/biomed/1471-2091-2-16.txt
+technical/biomed/1471-2091-2-5.txt
+technical/biomed/1471-2091-2-7.txt
+technical/biomed/1471-2091-2-9.txt
+technical/biomed/1471-2091-3-13.txt
+technical/biomed/1471-2091-3-14.txt
+technical/biomed/1471-2091-3-15.txt
+technical/biomed/1471-2091-3-16.txt
+technical/biomed/1471-2091-3-17.txt
+technical/biomed/1471-2091-3-18.txt
+technical/biomed/1471-2091-3-22.txt
+technical/biomed/1471-2091-3-23.txt
+technical/biomed/1471-2091-3-30.txt
+technical/biomed/1471-2091-3-31.txt
+technical/biomed/1471-2091-3-4.txt
+technical/biomed/1471-2091-3-8.txt
+...(cut short, so report is not too long)
+danilaebdane@Danilas-MacBook-Pro docsearch % 
+
+Ex 2:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -e '2' find-results.txt
+technical/biomed/1471-2091-2-10.txt
+technical/biomed/1471-2091-2-11.txt
+technical/biomed/1471-2091-2-12.txt
+technical/biomed/1471-2091-2-13.txt
+technical/biomed/1471-2091-2-16.txt
+technical/biomed/1471-2091-2-5.txt
+technical/biomed/1471-2091-2-7.txt
+technical/biomed/1471-2091-2-9.txt
+technical/biomed/1471-2091-3-13.txt
+technical/biomed/1471-2091-3-14.txt
+technical/biomed/1471-2091-3-15.txt
+technical/biomed/1471-2091-3-16.txt
+technical/biomed/1471-2091-3-17.txt
+technical/biomed/1471-2091-3-18.txt
+technical/biomed/1471-2091-3-22.txt
+technical/biomed/1471-2091-3-23.txt
+technical/biomed/1471-2091-3-30.txt
+technical/biomed/1471-2091-3-31.txt
+technical/biomed/1471-2091-3-4.txt
+technical/biomed/1471-2091-3-8.txt
+technical/biomed/1471-2091-4-1.txt
+technical/biomed/1471-2091-4-5.txt
+technical/biomed/1471-2105-1-1.txt
+technical/biomed/1471-2105-2-1.txt
+technical/biomed/1471-2105-2-8.txt
+technical/biomed/1471-2105-2-9.txt
+...(cut short, so report is not too long)
+danilaebdane@Danilas-MacBook-Pro docsearch % 
+```
+* `grep -e '___' fileName` opposite of `-v`, `-e` prints out the files that does contain a specific pattern. This is useful when trying to make a list of files depending on a pattern that we do want include.
+  
+```
+-H      Always print filename headers with output lines.
+
+Ex 1:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -H '2002' find-results.txt
+find-results.txt:technical/biomed/gb-2002-3-10-research0052.txt
+find-results.txt:technical/biomed/gb-2002-3-10-research0053.txt
+find-results.txt:technical/biomed/gb-2002-3-10-research0054.txt
+find-results.txt:technical/biomed/gb-2002-3-10-research0055.txt
+find-results.txt:technical/biomed/gb-2002-3-10-research0056.txt
+find-results.txt:technical/biomed/gb-2002-3-11-research0059.txt
+find-results.txt:technical/biomed/gb-2002-3-11-research0060.txt
+find-results.txt:technical/biomed/gb-2002-3-11-research0061.txt
+find-results.txt:technical/biomed/gb-2002-3-11-research0062.txt
+find-results.txt:technical/biomed/gb-2002-3-11-research0065.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0071.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0072.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0075.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0077.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0078.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0079.txt
+find-results.txt:technical/biomed/gb-2002-3-12-research0080.txt
+...(cut short, so report is not too long)
+danilaebdane@Danilas-MacBook-Pro docsearch %
+
+Ex 2:
+danilaebdane@Danilas-MacBook-Pro docsearch % grep -H '1468' find-results.txt
+find-results.txt:technical/biomed/1468-6708-3-1.txt
+find-results.txt:technical/biomed/1468-6708-3-10.txt
+find-results.txt:technical/biomed/1468-6708-3-3.txt
+find-results.txt:technical/biomed/1468-6708-3-4.txt
+find-results.txt:technical/biomed/1468-6708-3-7.txt
+danilaebdane@Danilas-MacBook-Pro docsearch % 
+```
+* `grep -H '___' fileName` prints out the files that does contain a specific pattern but with the fileName in front. This is useful when trying to make a lis depending on a pattern that we do want include but also knowing which file each content came from.
+  
 Source for all command-line descriptions : built-in on mac terminal "man grep"
 
 
