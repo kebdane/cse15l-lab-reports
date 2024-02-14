@@ -306,6 +306,6 @@ danilaebdane@Danilas-MacBook-Pro docsearch %
 ```
 * `grep -H '___' fileName` prints out the files that does contain a specific pattern but with the fileName in front. This is useful when trying to make a lis depending on a pattern that we do want include but also knowing which file each content came from.
   
-Source for all command-line descriptions : built-in on mac terminal "man grep"
+## Source for all command-line descriptions : built-in on mac terminal "man grep"
 
 
