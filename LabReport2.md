@@ -57,8 +57,13 @@ class ChatServer {
 
 ## Part 2
 
+### Private key
 ![Image](SS1.png)
-![Image](SS2.png)
+
+### Public key
+![Image](S2.png)
+
+### Example Login
 ![Image](SS3.png)
 * Here having a private key, made logging into ieng6 account much easier by not requiring to enter your password every time.
 
