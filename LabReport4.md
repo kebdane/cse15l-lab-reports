@@ -1,23 +1,23 @@
 # Lab Report 4 - Vim
 
-### Step 4
+### Log into ieng6
 Keys pressed:
 
 * `<up><enter>` - The `ssh kebdane@ieng6.ucsd.edu` command was 1 up in my search history, so I used up arrow to access it. 
 
-### Step 5
+### Clone your fork of the repository from your Github account (using the SSH URL)
 Keys pressed:
 
 * `git<space>clone<space>git@github.com:kebdane/lab7.git<enter>` - I used `git clone` with the ssh of my forked repository of `lab7` to clone the `lab7` repository.
 
-### Step 6
+### Run the tests, demonstrating that they fail
 Keys pressed:
 
 * `cd<space>lab7<enter>` - I used `cd` command with `lab7` directory to change the current working directory into `lab7`
 
 * `bash<space>test.sh<enter>` - I used `bash` with the file `test.sh` to run teh tests
 
-### Step 7
+### Edit the code file to fix the failing test
 Keys pressed:
 
 * `vim<space>ListExamples.java<enter>` - I used `vim` with `ListExamples.java` to edit the file within the terminal
@@ -32,12 +32,12 @@ Keys pressed:
 
 * `:wq` - I pressed `:wq` to save my changes, using `w`, in the file and quit Vim using `q`.
 
-### Step 8
+### Run the tests, demonstrating that they now succeed
 Keys pressed:
 
 * `<up><enter>` - The `bash test.sh` was 1 up in my search history, so I used up arrow to access it and run the program again.
 
-### Step 9
+### Commit and push the resulting change to your Github account
 Keys pressed:
 
 * `git<space>add<space>ListExamples.java<enter>` - to stage the changes made in the ListExamples.java file
