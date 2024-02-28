@@ -4,82 +4,78 @@
 
 ### Test case
 ```
-Before:
-@Test 
+class FilterCat implements StringChecker {
+    public boolean checkString(String s) {
+        return !(s.equals("cat"));
+    }
+  }
+
+public class ListTests {
+    @Test 
 	public void testFilter() {
-    List<String> classes = new ArrayList<>();
+	    List<String> classes = new ArrayList<>();
+	
+	    classes.add("dog");
+            classes.add("cat");
+	    classes.add("bird");
+	    classes.add("cat");
+	    classes.add("cat");
+	
+	    List<String> actual = ListExamples.filter(classes, new FilterCat());
 
-    classes.add("CSE15L");
-    classes.add("CSE12");
-    classes.add("CSE20");
-    classes.add("CSE11");
-
-    List<String> Expected = new ArrayList<>();
-
-    Expected.add("CSE15L");
-    Expected.add("CSE12");
-    Expected.add("CSE20");
-
-    StringChecker sc = new StringChecker();
-
-    assertSame(Expected, ListExamples.filter(classes, sc));
+	    List<String> expected = new ArrayList<>();
+	    expected.add("dog");
+	    expected.add("bird");
+	
+	    assertEquals(expected, actual);
 	}
-
-After:
-@Test 
-	public void testFilter() {
-    List<String> classes = new ArrayList<>();
-
-    classes.add("CSE15L");
-    classes.add("CSE12");
-    classes.add("CSE20");
-    classes.add("CSE11");
-
-    List<String> Expected = new ArrayList<>();
-
-    Expected.add("CSE15L");
-    Expected.add("CSE12");
-    Expected.add("CSE20");
-
-    ListExamples list = new ListExamples();
-
-    assertEquals(Expected, list.filter(classes, "CSE11"));
-	}
+}
 ```
-* The failure inducing output would be the parameter of the `filter` method, `sc`, which is type `StringChecker`. This is because `StringChecker` is an interface to which we cannot instantiate and to be used, the List class should implement it and include an implementation of the method `checkString` as required by the `StringChecker` interface.
+* The failure inducing input is in the assert line as we test for when the `expected` result equals the `actual`. But in this case they are not equal because of how `ListExamples.java` is implemented containing a bug such that the resulting (`actual`) list is reversed.
   
 ```
-StringChecker sc = new StringChecker();
-
-assertSame(Expected, ListExamples.filter(classes, sc));
+assertEquals(expected, actual);
 ```
-* A non-inducing failure would be if this `StringChecker` parameter is replaced by a `String` parameter that will account for the element the user wants to filter out of the list.
+* A non-inducing failure input would be if the expected list is reversed.
   
 ```
-assertSame(Expected, ListExamples.filter(classes, "CSE 11"));
+List<String> expected = new ArrayList<>();
+expected.add("bird");
+expected.add("dog");
+
+assertEquals(expected, actual);
 ```
 
 * Symptom (with and without bug)
   
 ```
 Before:
-danilaebdane@Danilas-MacBook-Pro lab4 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
-ListTests.java:23: error: StringChecker is abstract; cannot be instantiated
-    StringChecker sc = new StringChecker();
-                       ^
-1 error
+danilaebdane@Danilas-MacBook-Pro lab4 % bash test.sh
+JUnit version 4.13.2
+.E
+Time: 0.006
+There was 1 failure:
+1) testFilter(ListTests)
+java.lang.AssertionError: expected:<[dog, bird]> but was:<[bird, dog]>
+        at org.junit.Assert.fail(Assert.java:89)
+        at org.junit.Assert.failNotEquals(Assert.java:835)
+        at org.junit.Assert.assertEquals(Assert.java:120)
+        at org.junit.Assert.assertEquals(Assert.java:146)
+        at ListTests.testFilter(ListTests.java:30)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
 
 After:
-danilaebdane@Danilas-MacBook-Pro lab4 % java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListTests
-JUnit version 4.13.2
+danilaebdane@Danilas-MacBook-Pro lab4 % bash test.sh
 JUnit version 4.13.2
 .
-Time: 0.01
+Time: 0.005
 
 OK (1 test)
 ```
 
-* Before and After bug
+* Code Before and After bug
   
 ```
 Not fixed:
@@ -94,7 +90,7 @@ class ListExamples{
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(0,s);
       }
     }
     return result;
@@ -102,33 +98,26 @@ class ListExamples{
 }
 
 Fixed:
-interface StringChecker { boolean checkString(String s, String remove); }
+interface StringChecker { boolean checkString(String s); }
 
-class ListExamples implements StringChecker{
+class ListExamples{
 
   // Returns a new list that has all the elements of the input list for which
   // the StringChecker returns true, and not the elements that return false, in
   // the same order they appeared in the input list;
-  public List<String> filter(List<String> list, String remove) {
+  static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
     for(String s: list) {
-      if(this.checkString(s, remove)) {
+      if(sc.checkString(s)) {
         result.add(s);
       }
     }
     return result;
   }
-
-  public boolean checkString(String s, String remove){
-    if(s.equals(remove)){
-        return false;
-    }
-    return true;
-}
 }
 ```
 
-* The fix addressed the issue as instead of creating an instantation of the interface, we made the `ListExample` class to implement it along with the method `checkString`. In this case, the interface is properly used and with the right `checkString` method implementation we are able to make the `filter` method work.
+* The fix addressed the issue as instead of adding an element at the start of the list, changing `result.add(0,s)` into `result.add(s)` allows the element to be added at the end of the list thus meeting the requirement of being in the same order.
 
 ## Part 2
 
