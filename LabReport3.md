@@ -36,7 +36,7 @@ public class ListTests {
 ```
 assertEquals(expected, actual);
 ```
-* A non-inducing failure input would be if the expected list is reversed.
+* A non-inducing failure input would be if the expected list is reversed, although this would be wrong as we want the resulting list to be in the same order they appeared in the original list.
   
 ```
 List<String> expected = new ArrayList<>();
