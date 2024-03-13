@@ -8,7 +8,7 @@
   
 * TA Response:
 
-  From what I am seeing here, your code is using large amount of memory. Try looking over your code where it creates a new object that may hold large datasets such as lists.
+  From what I am seeing here, your code is using large amount of memory. Try looking over your code where it creates a new object that may hold large datasets such as lists. 
 
 * Student Response
 
@@ -27,4 +27,4 @@
 
 
 ### Part 2 - Reflection
-  On the second half of the quarter so many things, but one thing that was interesting and new to me was the Vim editor. It was cool for me because I learned that we can edit our files with just using the terminal, although saving and commiting it takes more steps. I also like how we were able to build our own grading script to which allow us to know how some programs like gradescope works. Everything were pretty much new to me and was really helpful to be learned. 
+  On the second half of the quarter I learned so many things, but one thing that was interesting and new to me was the Vim editor. It was cool for me because I learned that we can edit our files with just using the terminal, although saving and commiting it takes more steps. I also like how we were able to build our own grading script to which allow us to know how some programs like gradescope works. Everything were pretty much new to me and was really helpful to be learned. 
