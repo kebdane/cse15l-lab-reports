@@ -4,7 +4,7 @@
   
   Hi! So I'm working on my ListExamples file and can't seem to make it work. I keep testing and keep getting this error
 ![Image](LR5ss.png)
-  Based on this, I see that there is abug with my merge method, although I am not sure what does it mean having error with java heap space. It also says OutOfMemoryError, and I am not sure how to fix this.
+  Based on this, I see that there is a bug with my merge method, although I am not sure what does it mean having error with java heap space. It also says OutOfMemoryError, and I am not sure how to fix this.
   
 * TA Response:
 
@@ -12,11 +12,18 @@
 
 * Student Response
 
-  I tried your suggestion and as I was using a while method to add elements in a new list, I found out I am indexing it wrong thus causing an inifnite loop where the method keeps adding elements to the new list infinitely causing the out of memory error. Now the test cases seem to run fine!
+  I tried your suggestion and as I was using a while method to add elements in a new list, I found out I am indexing it wrong thus causing an inifnite loop where the method keeps adding elements to the new list its supposed to return infinitely causing the out of memory error. Now the test cases seem to run fine! Thank you!
 
-![Image](LR5ss.png)
+![Image](TestSuccess.png)
 
-
+* Scenario Set up
+  - buggy code
+  ![Image](ListExamplesFile.png)
+  - test case
+  ![Image](TestFile.png)
+  - bash script/ command lines ran
+  ![Image](BashScriptFile.png)
+  - To fix the bug, the indexing of the while loops are wrong. The student switched the indexing of the while loops thus need to change the indexing of `index1` to `index2` and indexing `index2` to `index1`. 
 
 
 ### Part 2 - Reflection
