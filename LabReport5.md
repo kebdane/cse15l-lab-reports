@@ -1,8 +1,19 @@
 # Lab Report 5 - Putting It All Together
 ### Part 1 - EdStem post
-Student Post:
-  Hi! So I'm working on my ListExamples file and can't seem to make my merge method work. I keep testing the method and keeps getting this error
-![Image](Screen Shot 2024-03-12 at 7.23.48 PM.png)
+* Student Post:
+  
+  Hi! So I'm working on my ListExamples file and can't seem to make it work. I keep testing and keep getting this error
+![Image](LR5ss.png)
+  Based on this, I see that there is abug with my merge method, although I am not sure what does it mean having error with java heap space. It also says OutOfMemoryError, and I am not sure how to fix this.
+
+* TA Response:
+
+  From what I am seeing here, your code is using large amount of memory. Try looking over your code where it creates a new object that may hold large datasets such as lists. Base on this, your merge method may be adding too many elements to it. 
+
+* Student Response
+
+  I tried your suggestion and as I was using a while method to add elements in a new list, I found out I am indexing it wrong thus causing an inifnite loop where the method keeps adding elements to the new list infinitely causing the out of memory error. 
+
 
 
 
