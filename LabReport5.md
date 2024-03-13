@@ -2,7 +2,7 @@
 ### Part 1 - EdStem post
 Student Post:
   Hi! So I'm working on my ListExamples file and can't seem to make my merge method work. I keep testing the method and keeps getting this error
-![Image](SC.png)
+![Image](Screen Shot 2024-03-12 at 7.23.48 PM.png)
 
 
 
