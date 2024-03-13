@@ -2,6 +2,7 @@
 ### Part 1 - EdStem post
 Student Post:
   Hi! So I'm working on my ListExamples file and can't seem to make my merge method work. I keep testing the method and keeps getting this error
+![Image](SC.png)
 
 
 
