@@ -23,7 +23,7 @@
   ![Image](TestFile.png)
   - bash script/ command lines ran
   ![Image](BashScriptFile.png)
-  - To fix the bug, the indexing of the while loops are wrong. The student switched the indexing of the while loops thus need to change the indexing of `index1` to `index2` and indexing `index2` to `index1`. 
+  - To fix the bug, the indexing of the while loops are wrong. The student switched the indexing of the while loops thus need to change the indexing of `index1`, on lines 30 and 39 in the buggy code, to `index2` and indexing `index2`, on lines 34 and 43 in the buggy code, to `index1`. 
 
 
 ### Part 2 - Reflection
