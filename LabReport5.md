@@ -8,7 +8,7 @@
   
 * TA Response:
 
-  From what I am seeing here, your code is using large amount of memory. Try looking over your code where it creates a new object that may hold large datasets such as lists. Base on this, your merge method may be adding too many elements to it. 
+  From what I am seeing here, your code is using large amount of memory. Try looking over your code where it creates a new object that may hold large datasets such as lists.
 
 * Student Response
 
